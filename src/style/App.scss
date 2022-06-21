@@ -1,3 +1,9 @@
+@use './navbar' as *;
+
 .App{
-    background-color: red;
+
+}
+
+.Navbar{
+    @include navbarStyle;
 }
