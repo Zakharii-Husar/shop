@@ -1,11 +1,18 @@
-import menu from "../icons/menu.svg";
-import cart from "../icons/cart.svg";
+import menuIcon from "../icons/menu.svg";
+import cartIcon from "../icons/cart.svg";
+import { Outlet, Link } from "react-router-dom";
+
 function Navbar() {
     return (
         <div className="Navbar">
-            <img src={menu}/>
-            <input type='text'></input>
-            <img src={cart}/>
+            <Link to="/">Home</Link>
+            <div className="navigation">
+                <Link to="/menu"><img src={menuIcon} /></Link>
+                <input type='text'></input>
+                <Link to="/cart"><img className="cart" src={cartIcon} /></Link>
+                <span className="cartCount">1</span>
+            </div>
+            <Outlet />
         </div>
     );
 }

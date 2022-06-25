@@ -1,7 +1,39 @@
 @mixin navbarStyle {
 
-    color: blue;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    div{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+    input{
+        width: 85%;
+        height: 3rem;
+        align-self: center;
+    }
     img{
-        width: 2rem;
+        width: 4rem;
+        height: 4rem;
+        border: 3px solid black;
+        border-radius: 20px;
+    }
+
+    .cart{
+        position: relative;
+    }
+
+    .cartCount{
+        position: absolute;
+        right: 0;
+        transform: translate(-0.5rem, 3rem);
+        color: white;
+        background-color: red;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 100%;
     }
 }
