@@ -7,9 +7,9 @@ function Navbar() {
         <div className="Navbar">
             <Link to="/">Home</Link>
             <div className="navigation">
-                <Link to="/menu"><img src={menuIcon} /></Link>
+                <Link to="/menu"><img src={menuIcon} alt="menu" /></Link>
                 <input type='text'></input>
-                <Link to="/cart"><img className="cart" src={cartIcon} /></Link>
+                <Link to="/cart"><img className="cart" src={cartIcon} alt="cart" /></Link>
                 <span className="cartCount">1</span>
             </div>
             <Outlet />

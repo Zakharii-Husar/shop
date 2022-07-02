@@ -1,0 +1,54 @@
+{
+    "cellphones": [
+        {
+            "brand": "huawei",
+            "model": "mate-20",
+            "price": "17000",
+            "color": "blue",
+            "memory": "128",
+            "ram": "4",
+            "frontCamera": "16",
+            "backCamera": "32",
+            "processor": "4",
+            "display": "14"
+        },
+        {
+            "brand": "samsung",
+            "model": "galaxy",
+            "price": "17000",
+            "color": "blue",
+            "memory": "128",
+            "ram": "4",
+            "frontCamera": "16",
+            "backCamera": "32",
+            "processor": "4",
+            "display": "14"
+        }
+    ],
+    "laptops": [
+        {
+            "brand": "asus",
+            "model": "x55a",
+            "price": "17000",
+            "color": "blue",
+            "memory": "128",
+            "ram": "4",
+            "frontCamera": "16",
+            "backCamera": "32",
+            "processor": "4",
+            "display": "14"
+        },
+        {
+            "brand": "lenovo",
+            "model": "yoga",
+            "price": "17000",
+            "color": "blue",
+            "memory": "128",
+            "ram": "4",
+            "frontCamera": "16",
+            "backCamera": "32",
+            "processor": "4",
+            "display": "14"
+        }
+    ]
+}
