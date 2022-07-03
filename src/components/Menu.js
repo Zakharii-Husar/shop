@@ -3,12 +3,12 @@ import { useSelector } from "react-redux";
 function Menu() {
 
   const DATA = useSelector(state => state.data);
-  const names = Object.keys(DATA);
+  const NAMES = Object.keys(DATA);
 
   return (
     <div className="Menu">
-      {names.map(name=>{
-        return(<Link key={name} to={`/${name}`}>{name.charAt(0).toUpperCase() + name.slice(1)}</Link>)
+      {NAMES.map(section=>{
+        return(<Link state={section} key={section} to={`/${section}`}>{section.charAt(0).toUpperCase() + section.slice(1)}</Link>)
       })}
       <Outlet />
     </div >
