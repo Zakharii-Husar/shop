@@ -1,8 +1,10 @@
 @use './navbar' as *;
 @use './menu' as *;
+@use './section' as *;
 
-.App{
-
+.App, body, *{
+    margin: 0;
+    padding: 0;
 }
 
 .Navbar{
@@ -11,4 +13,8 @@
 
 .Menu{
     @include menuStyle;
+}
+
+.Section{
+    @include sectionStyle;
 }

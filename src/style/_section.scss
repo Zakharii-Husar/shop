@@ -1,0 +1,64 @@
+@mixin sectionStyle {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 50%;
+
+    a:link, a:visited{
+        text-decoration: none;
+        font-style: oblique;
+        font-size: 1rem;
+    }
+
+    a:visited{
+        color: red;
+    }
+
+    a:link {
+        color: blue;
+    }
+
+    .sectionContainer{
+        display: flex;
+        position: relative;
+        justify-content: center;
+        margin: 2rem;
+
+    }
+
+    .sectionHeader{
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .favBtn{
+        color: gold;
+        display: flex;
+        position: absolute;
+        top: 0;
+        right: -25vw
+    }
+
+    .sectionControl{
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        bottom: 0;
+        color: blue;
+    }
+
+    .sectionControl *{
+        background-color: white;
+    }
+
+    .quantityCount{
+        width: 4rem;
+        font-size: 2rem;
+    }
+
+    img {
+        width: 50vw;
+        margin-bottom: 4rem;
+    }
+}

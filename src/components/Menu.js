@@ -8,7 +8,7 @@ function Menu() {
   return (
     <div className="Menu">
       {NAMES.map(section=>{
-        return(<Link state={section} key={section} to={`/${section}`}>{section.charAt(0).toUpperCase() + section.slice(1)}</Link>)
+        return(<Link key={section} state={section} to={`/${section}`}>{section.charAt(0).toUpperCase() + section.slice(1)}</Link>)
       })}
       <Outlet />
     </div >

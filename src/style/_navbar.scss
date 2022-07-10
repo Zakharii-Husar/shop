@@ -10,30 +10,33 @@
         width: 100%;
         justify-content: space-between;
     }
-    input{
+    .searchBar{
         width: 85%;
-        height: 3rem;
+        height: 2rem;
+        font-size: 2rem;
         align-self: center;
     }
-    img{
+
+    .cartIcon, .menuIcon {
         width: 4rem;
         height: 4rem;
-        border: 3px solid black;
-        border-radius: 20px;
     }
 
-    .cart{
+
+    .cartIcon{
         position: relative;
+        transform: scaleX(-1);
     }
 
     .cartCount{
         position: absolute;
         right: 0;
-        transform: translate(-0.5rem, 3rem);
+        transform: translate(-1rem, 1.5rem);
         color: white;
-        background-color: red;
+        background-color: green;
         width: 1rem;
         height: 1rem;
+        padding: 0.5rem;
         border-radius: 100%;
     }
 }
