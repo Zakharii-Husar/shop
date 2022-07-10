@@ -1,5 +1,5 @@
 import './style/App.scss'
-import Fetch from './features/fetch/Fetch';
+import Fetch from './components/Fetch';
 import { Outlet, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { AiFillShopping, AiOutlineMenu } from 'react-icons/ai';

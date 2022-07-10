@@ -1,7 +1,7 @@
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from 'react-redux';
-import { like, unlike, add, increaseQuantity, remove, decreaseQuantity } from './sectionSlice';
+import { like, unlike, add, increaseQuantity, remove, decreaseQuantity } from './stateSlice';
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 import { AiOutlineMinusSquare, AiOutlinePlusSquare } from 'react-icons/ai';
 
@@ -51,7 +51,7 @@ function Section() {
                 <h2>{`${name} ${item.color} ${item.ram}/${item.memory}GB`}</h2>
                 <div>{`Price: ${item.price}$`}</div>
               </div>
-              <img src={require(`../../img/${item.brand}&${item.model}.jpg`)} /></Link>
+              <img src={require(`../img/${item.brand}&${item.model}.jpg`)} /></Link>
 
 
             <div className="sectionControl">
