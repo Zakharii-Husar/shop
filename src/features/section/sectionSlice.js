@@ -13,7 +13,13 @@ export const sectionSlice = createSlice({
             state.cart.push({...action.payload, quantity: 1})
         },
         increaseQuantity: (state, action) =>{
-            state.cart[state.cart.findIndex(element=> element.brand === action.payload.brand)].quantity += 1
+            state.cart[action.payload].quantity += 1
+        },
+        remove: (state, action) => {
+            state.cart.splice(action.payload, 1)
+        },
+        decreaseQuantity: (state, action) => {
+            state.cart[action.payload].quantity -= 1
         },
         like: (state, action) => {
             state.favourite.push(action.payload);
@@ -25,7 +31,7 @@ export const sectionSlice = createSlice({
     },
 })
 
-export const { like, unlike, add, increaseQuantity } = sectionSlice.actions
+export const { like, unlike, add, increaseQuantity, remove, decreaseQuantity } = sectionSlice.actions
 
 export default sectionSlice.reducer
 
