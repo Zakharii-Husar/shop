@@ -27,6 +27,17 @@ function Section() {
 
         const quantity = CART[addedItemIndex]?.quantity || 0;
 
+        const minusBtn = () => {
+          if (quantity === 0) return;
+          quantity === 1 ? dispatch(remove(addedItemIndex)) :
+            dispatch(decreaseQuantity(addedItemIndex))
+        };
+
+        const plusBtn = () => {
+          CART[addedItemIndex] ? dispatch(increaseQuantity(addedItemIndex)) :
+           dispatch(add(item))
+        };
+
         return (
           <div className="sectionContainer" key={item.brand + item.model}>
 
@@ -44,11 +55,11 @@ function Section() {
 
 
             <div className="sectionControl">
-              <AiOutlineMinusSquare onClick={()=> quantity > 0 ? dispatch(decreaseQuantity(addedItemIndex)) : dispatch(remove(addedItemIndex))} size={40} />
+              <AiOutlineMinusSquare onClick={minusBtn} size={40} />
 
               <div className="quantityCount">{quantity}</div>
 
-              <AiOutlinePlusSquare onClick={() => CART[addedItemIndex] ? dispatch(increaseQuantity(addedItemIndex)) : dispatch(add(item))} size={40} />
+              <AiOutlinePlusSquare onClick={plusBtn} size={40} />
             </div>
 
           </div>

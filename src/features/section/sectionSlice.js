@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     favourite: [],
@@ -19,7 +19,7 @@ export const sectionSlice = createSlice({
             state.cart.splice(action.payload, 1)
         },
         decreaseQuantity: (state, action) => {
-            state.cart[action.payload].quantity -= 1
+            state.cart[action.payload].quantity -= 1;
         },
         like: (state, action) => {
             state.favourite.push(action.payload);
