@@ -4,13 +4,14 @@
             "brand": "huawei",
             "model": "mate-20",
             "price": "17000",
-            "color": "blue",
+            "color": "black",
             "memory": "128",
             "ram": "4",
             "frontCamera": "16",
             "backCamera": "32",
             "processor": "4",
-            "display": "14"
+            "display": "14",
+            "battery": "4000mAh"
         },
         {
             "brand": "samsung",
@@ -22,7 +23,8 @@
             "frontCamera": "16",
             "backCamera": "32",
             "processor": "4",
-            "display": "14"
+            "display": "14",
+            "battery": "4000mAh"
         }
     ],
     "laptops": [
@@ -36,7 +38,8 @@
             "frontCamera": "16",
             "backCamera": "32",
             "processor": "4",
-            "display": "14"
+            "display": "14",
+            "battery": "4000mAh"
         },
         {
             "brand": "lenovo",
@@ -48,7 +51,8 @@
             "frontCamera": "16",
             "backCamera": "32",
             "processor": "4",
-            "display": "14"
+            "display": "14",
+            "battery": "4000mAh"
         }
     ]
 }
