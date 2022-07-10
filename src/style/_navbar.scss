@@ -1,34 +1,45 @@
 @mixin navbarStyle {
-
     display: flex;
     flex-direction: column;
     width: 100%;
     text-align: center;
-    .navigation{
+
+    .header{
+        width: 100%;
+        background-color: white;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+
+    .navigation {
         display: flex;
         flex-direction: row;
         width: 100%;
         justify-content: space-between;
     }
-    .searchBar{
+
+    .searchBar {
         width: 85%;
         height: 2rem;
         font-size: 2rem;
         align-self: center;
     }
 
-    .cartIcon, .menuIcon {
+    .cartIcon,
+    .menuIcon {
         width: 4rem;
         height: 4rem;
     }
 
 
-    .cartIcon{
+    .cartIcon {
         position: relative;
         transform: scaleX(-1);
     }
 
-    .cartCount{
+    .cartCount {
         position: absolute;
         right: 0;
         transform: translate(-1rem, 1.5rem);

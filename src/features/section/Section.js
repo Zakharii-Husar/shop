@@ -20,7 +20,6 @@ function Section() {
 
         const isItemLiked = SECTION_STATE.favourite.includes(item) ? true : false;
         const itemInTheCart = SECTION_STATE.cart.filter( i => i.brand + i.model === item.brand + item.model);
-        console.log(itemInTheCart[0])
 
         return (
           <div className="sectionContainer" key={item.brand + item.model}>
@@ -35,7 +34,7 @@ function Section() {
               <img src={require(`../../img/${item.brand}&${item.model}.jpg`)} /></Link>
             <div className="sectionControl">
               <AiOutlineMinusSquare size={40} />
-              <div className="quantityCount">{itemInTheCart.length > 0 ? itemInTheCart[0].quantity : "add"}</div>
+              <div className="quantityCount">{itemInTheCart.length > 0 ? itemInTheCart[0].quantity : "0"}</div>
               <AiOutlinePlusSquare onClick={()=> itemInTheCart.length > 0 ? dispatch(increaseQuantity(itemInTheCart[0])) : dispatch(add(item))} size={40} />
             </div>
           </div>

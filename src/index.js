@@ -20,7 +20,7 @@ root.render(
     <Provider store={store}>
       <HashRouter>
         <Routes>
-          <Route path="/" exact element={<App />}>
+          <Route path="/" element={<App />}>
             <Route path="/cart" element={<Cart />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/:section" exact element={<Section />} >
