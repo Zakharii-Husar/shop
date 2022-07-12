@@ -7,6 +7,7 @@ function Menu() {
 
   return (
     <div className="Menu">
+      <Link to="/favourite">Favourite</Link>
       {NAMES.map(section=>{
         return(<Link key={section} state={section} to={`/${section}`}>{section.charAt(0).toUpperCase() + section.slice(1)}</Link>)
       })}

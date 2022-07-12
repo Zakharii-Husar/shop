@@ -1,4 +1,4 @@
-import Section from "./Section";
+import Overview from "./Overview";
 
 function Cart() {
     return (

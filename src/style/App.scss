@@ -1,6 +1,6 @@
 @use './navbar' as *;
 @use './menu' as *;
-@use './section' as *;
+@use './overview' as *;
 
 .App, body, *{
     margin: 0;
@@ -15,6 +15,6 @@
     @include menuStyle;
 }
 
-.Section{
-    @include sectionStyle;
+.Overview{
+    @include overviewStyle;
 }

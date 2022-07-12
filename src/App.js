@@ -11,11 +11,16 @@ function App() {
     <div className="App">
       <div className='header'>
       <Link to="/">Home</Link>
+
       <div className="navigation">
+
         <Link to="/menu"><AiOutlineMenu className="menuIcon" /></Link>
+
         <input className="searchBar" type='text'></input>
+
         <Link to="/cart"><AiFillShopping className="cartIcon" /></Link>
         <span className="cartCount">{CART_STATE.length}</span>
+
       </div>
       </div>
       <Outlet />

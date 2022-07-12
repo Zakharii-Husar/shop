@@ -1,4 +1,4 @@
-@mixin sectionStyle {
+@mixin overviewStyle {
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -18,7 +18,7 @@
         color: blue;
     }
 
-    .sectionContainer{
+    .overviewContainer{
         display: flex;
         position: relative;
         justify-content: center;
@@ -26,7 +26,7 @@
 
     }
 
-    .sectionHeader{
+    .overviewHeader{
         display: flex;
         flex-direction: column;
         margin: 0;
@@ -40,7 +40,7 @@
         right: -25vw
     }
 
-    .sectionControl{
+    .overviewControl{
         display: flex;
         flex-direction: row;
         position: absolute;
@@ -48,7 +48,7 @@
         color: blue;
     }
 
-    .sectionControl *{
+    .overviewControl *{
         background-color: white;
     }
 
