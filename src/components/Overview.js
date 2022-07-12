@@ -47,7 +47,7 @@ function Overview({ type }) {
           .indexOf(CART
             .filter(i => i.id === item.id)[0]);
 
-        const quantityInCart = CART[addedItemIndex]?.quantityInCart || 0;
+        const quantityInCart = CART[addedItemIndex]?.quantity || 0;
 
         const minusBtn = () => {
           if (quantityInCart === 0) return;
