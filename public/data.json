@@ -58,5 +58,35 @@
             "display": "14",
             "battery": "4000mAh"
         }
+    ],
+    "tv": [
+        {
+            "id": "30",
+            "brand": "samsung",
+            "model": "tv",
+            "price": "17000",
+            "color": "blue",
+            "memory": "128",
+            "ram": "4",
+            "frontCamera": "16",
+            "backCamera": "32",
+            "processor": "4",
+            "display": "14",
+            "battery": "4000mAh"
+        },
+        {
+            "id": "31",
+            "brand": "sharp",
+            "model": "tv",
+            "price": "17000",
+            "color": "blue",
+            "memory": "128",
+            "ram": "4",
+            "frontCamera": "16",
+            "backCamera": "32",
+            "processor": "4",
+            "display": "14",
+            "battery": "4000mAh"
+        }
     ]
 }

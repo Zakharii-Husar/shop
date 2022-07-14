@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     favourite: [],
-    cart: []
+    cart: [],
+    input: ""
 };
 
 export const sectionSlice = createSlice({
@@ -27,11 +28,14 @@ export const sectionSlice = createSlice({
         unlike: (state, action) => {
             state.favourite = state.favourite.filter(item => item.brand + item.model !==
                 action.payload.brand + action.payload.model)
+        },
+        search: (state, action) => {
+            state.input = action.payload
         }
     },
 })
 
-export const { like, unlike, add, increaseQuantity, remove, decreaseQuantity } = sectionSlice.actions
+export const { like, unlike, add, increaseQuantity, remove, decreaseQuantity, search } = sectionSlice.actions
 
 export default sectionSlice.reducer
 

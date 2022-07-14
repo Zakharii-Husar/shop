@@ -3,32 +3,49 @@ import { useDispatch, useSelector } from "react-redux";
 import { like, unlike, add, increaseQuantity, remove, decreaseQuantity } from './stateSlice';
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 import { AiOutlineMinusSquare, AiOutlinePlusSquare } from 'react-icons/ai';
+import { useEffect } from "react";
 
 function Overview({ type }) {
   const dispatch = useDispatch();
   const DATA = useSelector(state => state.data);
   const CART = useSelector(state => state.section.cart);
   const LIKED = useSelector(state => state.section.favourite);
+  const SEARCHED = useSelector(state => state.section.input);
   const LOCATION = useLocation();
   let ARR = DATA[LOCATION.state];
   const SECTION_LINK = LOCATION.state || type;
 
-  const setCurrentListOfProducts = () => {
-
-    const allItemsShuffled = () => {
-      const all = [];
-      const keys = Object.keys(DATA)
-      keys.map((key) => {
-        DATA[key].map(obj => {
-          all.splice(-1, 0, obj);
-        });
+  const allItems = () => {
+    const all = [];
+    Object.keys(DATA).map(key => {
+      DATA[key].map(obj => {
+        all.push(obj);
       });
-      return all;
-    };
+    });
+    return all;
+  };
 
-    if (type === "home") ARR = allItemsShuffled();
+  console.log(SEARCHED.length)
+
+  const searchItem = (searchedWord) => {
+    const matches = [];
+    allItems().forEach(obj => {
+      if (JSON.stringify(obj).includes(searchedWord.toLowerCase())) matches.push(obj);
+    })
+    return matches
+  };
+
+
+
+  useEffect(() => {
+    console.log(searchItem("samsung"));
+  })
+
+  const setCurrentListOfProducts = () => {
+    if (type === "home") ARR = allItems();
     if (type === "favourite") ARR = LIKED;
     if (type === "cart") ARR = CART;
+    if (SEARCHED.length > 0) ARR = searchItem(SEARCHED);
   }
 
   setCurrentListOfProducts();
@@ -36,6 +53,7 @@ function Overview({ type }) {
 
   return (
     <div className="Overview">
+      <div style={{ display: ARR?.length > 0 ? "none" : "flex" }}>No items yet</div>
       {ARR?.map(item => {
 
         const name = `${item.brand.charAt(0).toUpperCase()}${item.brand.slice(1)}

@@ -25,9 +25,8 @@ root.render(
             <Route path="/" element={<Overview type="home" />} />
             <Route path="/cart" element={<Overview type="cart" />} />
             <Route path="/favourite" element={<Overview type="favourite" />} />
-            <Route path="/:section" element={<Overview type="section" />} >
-              <Route path="/:section/:item" element={<Item />} />
-            </Route>
+            <Route path="/:section" element={<Overview type="section" />} />
+            <Route path="/:section/:item" element={<Item />} />
           </Route>
         </Routes>
       </HashRouter>

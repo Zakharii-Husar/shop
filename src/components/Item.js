@@ -7,7 +7,6 @@ function Item() {
     return (
         <div className="Item">
            <div>{itemProps.brand}</div>
-           
         </div>
     );
 }
