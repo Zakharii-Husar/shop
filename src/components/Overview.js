@@ -13,7 +13,7 @@ function Overview({ type }) {
   const LOCATION = useLocation();
   const SECTION_LINK = LOCATION.state || type;
   let ARR = DATA[LOCATION.state];
-  let EMPTY_LIST_MESSAGE = "You don't have favourite items yet";
+  let EMPTY_LIST_MESSAGE = "Nothing has been found";
 
 
   const allItems = () => {
@@ -40,14 +40,14 @@ function Overview({ type }) {
 
   const setCurrentListOfProducts = () => {
     if (type === "home") ARR = allItems();
-    if (type === "favourite") ARR = LIKED;
+    if (SEARCHED.length > 0) ARR = searchItem(SEARCHED);
+    if (type === "favourite"){
+      ARR = LIKED;
+      EMPTY_LIST_MESSAGE = "You don't have favourite items yet";
+    } 
     if (type === "cart") {
       ARR = CART;
       EMPTY_LIST_MESSAGE = "Your cart is empty";
-    }
-    if (SEARCHED.length > 0) {
-      ARR = searchItem(SEARCHED);
-      EMPTY_LIST_MESSAGE = "Nothing has been found";
     }
   }
 
