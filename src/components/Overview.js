@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { like, unlike, add, increaseQuantity, remove, decreaseQuantity } from './stateSlice';
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 import { AiOutlineMinusSquare, AiOutlinePlusSquare } from 'react-icons/ai';
-import { useEffect } from "react";
 
 function Overview({ type }) {
   const dispatch = useDispatch();
@@ -12,8 +11,10 @@ function Overview({ type }) {
   const LIKED = useSelector(state => state.section.favourite);
   const SEARCHED = useSelector(state => state.section.input);
   const LOCATION = useLocation();
-  let ARR = DATA[LOCATION.state];
   const SECTION_LINK = LOCATION.state || type;
+  let ARR = DATA[LOCATION.state];
+  let EMPTY_LIST_MESSAGE = "You don't have favourite items yet";
+
 
   const allItems = () => {
     const all = [];
@@ -25,27 +26,29 @@ function Overview({ type }) {
     return all;
   };
 
-  console.log(SEARCHED.length)
 
-  const searchItem = (searchedWord) => {
+  const searchItem = (input) => {
     const matches = [];
     allItems().forEach(obj => {
-      if (JSON.stringify(obj).includes(searchedWord.toLowerCase())) matches.push(obj);
+      const stringifiedObject = JSON.stringify(obj);
+      const searchedPhrase = input.split(' ');
+      if (searchedPhrase.every(word => stringifiedObject.includes(word.toLowerCase()))) matches.push(obj);
     })
     return matches
   };
 
 
-
-  useEffect(() => {
-    console.log(searchItem("samsung"));
-  })
-
   const setCurrentListOfProducts = () => {
     if (type === "home") ARR = allItems();
     if (type === "favourite") ARR = LIKED;
-    if (type === "cart") ARR = CART;
-    if (SEARCHED.length > 0) ARR = searchItem(SEARCHED);
+    if (type === "cart") {
+      ARR = CART;
+      EMPTY_LIST_MESSAGE = "Your cart is empty";
+    }
+    if (SEARCHED.length > 0) {
+      ARR = searchItem(SEARCHED);
+      EMPTY_LIST_MESSAGE = "Nothing has been found";
+    }
   }
 
   setCurrentListOfProducts();
@@ -53,7 +56,7 @@ function Overview({ type }) {
 
   return (
     <div className="Overview">
-      <div style={{ display: ARR?.length > 0 ? "none" : "flex" }}>No items yet</div>
+      <div style={{ display: ARR?.length > 0 ? "none" : "flex" }}>{EMPTY_LIST_MESSAGE}</div>
       {ARR?.map(item => {
 
         const name = `${item.brand.charAt(0).toUpperCase()}${item.brand.slice(1)}
