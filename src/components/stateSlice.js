@@ -13,7 +13,7 @@ export const sectionSlice = createSlice({
         add: (state, action) => {
             state.cart.push({...action.payload, quantity: 1})
         },
-        increaseQuantity: (state, action) =>{
+        increaseQuantity: (state, action) => {
             state.cart[action.payload].quantity += 1
         },
         remove: (state, action) => {

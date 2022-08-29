@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import Cart from './components/Cart';
 import Menu from './components/Menu';
 import Overview from './components/Overview';
 import Item from './components/Item';

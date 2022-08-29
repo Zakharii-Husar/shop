@@ -6,7 +6,7 @@ function Fetch() {
     const fetchData = () => {
             fetch('./data.json')
                 .then(response => response.json())
-                .then( data =>dispatch(fetchJSON( data)))
+                .then( data => dispatch(fetchJSON( data)))
     };
 
     fetchData();

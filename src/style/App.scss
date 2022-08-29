@@ -1,20 +1,27 @@
 @use './navbar' as *;
 @use './menu' as *;
 @use './overview' as *;
+@use './item' as *;
 
-.App, body, *{
+.App,
+body,
+* {
     margin: 0;
     padding: 0;
 }
 
-.App{
+.App {
     @include navbarStyle;
 }
 
-.Menu{
+.Menu {
     @include menuStyle;
 }
 
-.Overview{
+.Overview {
     @include overviewStyle;
+}
+
+.Item {
+    @include itemStyle;
 }
