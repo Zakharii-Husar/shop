@@ -153,7 +153,7 @@ function Overview({ type }) {
                 <div>{`Price: ${item.price}$`}</div>
               </div>
 
-              <img src={require(`../img/${item.brand}/${item.model}/1.jpg`)} />
+              <img src={require(`../img/${item.brand}/${item.model}/1.jpg`)} alt="img" />
             </Link>
 
             <div className="overviewControl">

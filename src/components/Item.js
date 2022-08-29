@@ -26,7 +26,7 @@ function Item() {
         <div className="Item">
             <div className="itemPicture">
                 <MdOutlineArrowLeft className="swipeLeft" onClick={() => setIconNumber(iconNumber - 1)}/>
-                <img src={itemPicture} />
+                <img src={itemPicture} alt="img"/>
                 <MdOutlineArrowRight className="swipeRight" onClick={() => setIconNumber(iconNumber + 1)}/>
             </div>
             <div className="itemDescription">
