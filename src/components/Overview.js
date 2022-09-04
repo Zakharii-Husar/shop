@@ -72,7 +72,7 @@ function Overview({ type }) {
       tax: 0,
     };
 
-    CART.forEach((item) => {
+    CART.forEach(item => {
       total.quantity += item.quantity;
       total.price += Math.round(item.price * item.quantity * 100) / 100;
       total.tax = Math.round(total.price * taxPercent * 100) / 100;
@@ -111,7 +111,7 @@ function Overview({ type }) {
           : false;
 
         const addedItemIndex = CART.indexOf(
-          CART.filter((i) => i.id === item.id)[0]
+          CART.filter(i => i.id === item.id)[0]
         );
 
         const quantityInCart = CART[addedItemIndex]?.quantity || 0;

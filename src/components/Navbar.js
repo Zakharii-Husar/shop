@@ -10,20 +10,27 @@ function Navbar() {
   const LOCATION = useLocation();
   const CART_STATE = useSelector((state) => state.section.cart);
   const INPUT_STATE = useSelector((state) => state.section.input);
-  const userIsSearching =
-    INPUT_STATE.length > 0 && LOCATION.pathname !== "/" ? (
-      <Navigate to="/" />
-    ) : null;
+  // const isImputEmpty =
+  //   INPUT_STATE.length > 0 && LOCATION.pathname !== "/" ? (
+  //     <Navigate to="/" />
+  //   ) : null;
+
+
   const clearSearchInput = () => dispatch(search(""));
-  window.onpopstate = () => clearSearchInput();
-  const switchList = () => {
-    clearSearchInput();
+  const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       left: 0,
       behavior: "smooth",
     });
   };
+
+  const switchList = () => {
+    clearSearchInput();
+    scrollToTop();
+  };
+
+  //window.onpopstate = () => clearSearchInput();
 
   return (
     <div className="Navbar">
@@ -32,7 +39,7 @@ function Navbar() {
         </Link>
 
         <div className="navigation">
-          {userIsSearching}
+          {/* {isImputEmpty} */}
 
           <Link to="/menu" onClick={switchList}>
             <AiOutlineMenu className="menuIcon" />

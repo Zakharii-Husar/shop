@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import Menu from "./components/Menu";
 import Overview from "./components/Overview";
 import Item from "./components/Item";
+import Footer from "./components/Footer";
 import { HashRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/:section" element={<Overview type="section" />} />
           <Route path="/:section/:item" element={<Item />} />
         </Routes>
+        <Footer />
       </HashRouter>
     </div>
   );
