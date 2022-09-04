@@ -1,16 +1,11 @@
 @mixin navbarStyle {
-    display: flex;
-    flex-direction: column;
+    background-color: white;
     width: 100%;
     text-align: center;
-
-    .header{
-        width: 100%;
-        background-color: white;
-        position: sticky;
-        top: 0;
-        z-index: 1;
-    }
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 
 
     .navigation {

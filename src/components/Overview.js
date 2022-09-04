@@ -63,16 +63,15 @@ function Overview({ type }) {
 
   setCurrentListOfProducts();
 
-  
   const calculateTotal = () => {
-    const taxPercent = .07;
-    
+    const taxPercent = 0.07;
+
     let total = {
       quantity: 0,
       price: 0,
       tax: 0,
     };
-    
+
     CART.forEach((item) => {
       total.quantity += item.quantity;
       total.price += Math.round(item.price * item.quantity * 100) / 100;
@@ -85,12 +84,15 @@ function Overview({ type }) {
     ${total.price + total.tax}$  
     (${total.tax}$ of what is tax)`;
   };
-  
 
   return (
     <div className="Overview">
-
-      <div className="cartSummary" style={{ display: type === "cart" && ARR?.length > 0 ? "flex" : "none"}}>
+      <div
+        className="cartSummary"
+        style={{
+          display: type === "cart" && ARR?.length > 0 ? "flex" : "none",
+        }}
+      >
         {calculateTotal()}
       </div>
 
@@ -153,7 +155,10 @@ function Overview({ type }) {
                 <div>{`Price: ${item.price}$`}</div>
               </div>
 
-              <img src={require(`../img/${item.brand}/${item.model}/1.jpg`)} alt="img" />
+              <img
+                src={require(`../img/${item.brand}/${item.model}/1.jpg`)}
+                alt="img"
+              />
             </Link>
 
             <div className="overviewControl">

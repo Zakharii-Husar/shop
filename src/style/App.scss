@@ -3,14 +3,19 @@
 @use './overview' as *;
 @use './item' as *;
 
-.App,
-body,
-* {
+body, * {
     margin: 0;
     padding: 0;
 }
 
 .App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: grey;
+}
+
+.Navbar {
     @include navbarStyle;
 }
 

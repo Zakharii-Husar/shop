@@ -1,34 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import Menu from './components/Menu';
-import Overview from './components/Overview';
-import Item from './components/Item';
-import { store } from './store';
-import { Provider } from 'react-redux';
-import {
-  HashRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
+import "./style/App.scss";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { store } from "./store";
+import { Provider } from "react-redux";
+import App from "./App";
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <HashRouter>
-        <Routes>
-          <Route path="/" element={<App />}>
-            <Route path="/menu" element={<Menu />} />
-            <Route path="/" element={<Overview type="home" />} />
-            <Route path="/cart" element={<Overview type="cart" />} />
-            <Route path="/favourite" element={<Overview type="favourite" />} />
-            <Route path="/:section" element={<Overview type="section" />} />
-            <Route path="/:section/:item" element={<Item />} />
-          </Route>
-        </Routes>
-      </HashRouter>
+      <App/>
     </Provider>
   </React.StrictMode>
 );
