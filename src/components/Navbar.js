@@ -3,11 +3,11 @@ import { Outlet, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { AiFillShopping, AiOutlineMenu } from "react-icons/ai";
 import { search } from "./stateSlice";
-import { Navigate, useLocation } from "react-router-dom";
+//import { Navigate, useLocation } from "react-router-dom";
 
 function Navbar() {
   const dispatch = useDispatch();
-  const LOCATION = useLocation();
+  //const LOCATION = useLocation();
   const CART_STATE = useSelector((state) => state.section.cart);
   const INPUT_STATE = useSelector((state) => state.section.input);
   // const isImputEmpty =
