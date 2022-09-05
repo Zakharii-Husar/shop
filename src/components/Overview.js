@@ -9,8 +9,16 @@ import {
   decreaseQuantity,
   search,
 } from "./stateSlice";
+
+import searchF from "../functions/searchF";
+import calculateTotalPriceF from "../functions/calculateTotalPriceF";
+
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
-import { AiOutlineMinusSquare, AiOutlinePlusSquare } from "react-icons/ai";
+import {
+  AiOutlineMinusSquare,
+  AiOutlinePlusSquare,
+  AiFillDelete,
+} from "react-icons/ai";
 
 function Overview({ type }) {
   const dispatch = useDispatch();
@@ -21,69 +29,39 @@ function Overview({ type }) {
   const LOCATION = useLocation();
   const SECTION_LINK = LOCATION.state || type;
   let ARR = DATA[LOCATION.state];
-  let EMPTY_LIST_MESSAGE = "Nothing has been found";
-
-  const allItems = () => {
-    const all = [];
-    Object.keys(DATA).forEach((key) => {
-      DATA[key].forEach((obj) => {
-        all.push(obj);
-      });
-    });
-    return all;
-  };
-
-  const searchItem = (input) => {
-    const matches = [];
-    allItems().forEach((obj) => {
-      const stringifiedObject = JSON.stringify(obj);
-      const searchedPhrase = input.split(" ");
-      if (
-        searchedPhrase.every((word) =>
-          stringifiedObject.toLowerCase().includes(word.toLowerCase())
-        )
-      )
-        matches.push(obj);
-    });
-    return matches;
-  };
+  let EMPTY_LIST_MESSAGE =
+    SEARCHED.length === 1 ? "Keep typing..." : "Nothing has been found";
 
   const setCurrentListOfProducts = () => {
-    if (type === "home") ARR = allItems();
-    if (SEARCHED.length > 0) ARR = searchItem(SEARCHED);
-    if (type === "favourite") {
-      ARR = LIKED;
-      EMPTY_LIST_MESSAGE = "You don't have favourite items yet";
-    }
+    const allItems = () => {
+      const all = [];
+      Object.keys(DATA).forEach((key) => {
+        DATA[key].forEach((obj) => {
+          all.push(obj);
+        });
+      });
+      return all;
+    };
+
     if (type === "cart") {
       ARR = CART;
-      EMPTY_LIST_MESSAGE = "Your cart is empty";
+      EMPTY_LIST_MESSAGE =
+        SEARCHED.length === 0
+          ? "Your cart is empty."
+          : "Nothing has been found in the cart.";
     }
+    if (type === "favourite") {
+      ARR = LIKED;
+      EMPTY_LIST_MESSAGE =
+        SEARCHED.length === 0
+          ? "You don't have favourite items yet"
+          : "Nothing has been found in your favourite items.";
+    }
+    if (type === "home") ARR = allItems();
+    if (SEARCHED.length > 0) ARR = searchF(SEARCHED, ARR);
   };
 
   setCurrentListOfProducts();
-
-  const calculateTotal = () => {
-    const taxPercent = 0.07;
-
-    let total = {
-      quantity: 0,
-      price: 0,
-      tax: 0,
-    };
-
-    CART.forEach(item => {
-      total.quantity += item.quantity;
-      total.price += Math.round(item.price * item.quantity * 100) / 100;
-      total.tax = Math.round(total.price * taxPercent * 100) / 100;
-    });
-    return `You have 
-    ${total.quantity} 
-    ${total.quantity > 1 ? "items" : "item"} 
-    in your basket, priced
-    ${total.price + total.tax}$  
-    (${total.tax}$ of what is tax)`;
-  };
 
   return (
     <div className="Overview">
@@ -93,7 +71,7 @@ function Overview({ type }) {
           display: type === "cart" && ARR?.length > 0 ? "flex" : "none",
         }}
       >
-        {calculateTotal()}
+        {calculateTotalPriceF(CART)}
       </div>
 
       <div style={{ display: ARR?.length > 0 ? "none" : "flex" }}>
@@ -111,7 +89,7 @@ function Overview({ type }) {
           : false;
 
         const addedItemIndex = CART.indexOf(
-          CART.filter(i => i.id === item.id)[0]
+          CART.filter((i) => i.id === item.id)[0]
         );
 
         const quantityInCart = CART[addedItemIndex]?.quantity || 0;
@@ -162,7 +140,11 @@ function Overview({ type }) {
             </Link>
 
             <div className="overviewControl">
-              <AiOutlineMinusSquare onClick={minusBtn} size={40} />
+              {quantityInCart === 1 ? (
+                <AiFillDelete onClick={minusBtn} size={40} />
+              ) : (
+                <AiOutlineMinusSquare onClick={minusBtn} size={40} style={quantityInCart === 0 ? {color: "grey"} : {}}/>
+              )}
 
               <div className="quantityCount">{quantityInCart}</div>
 

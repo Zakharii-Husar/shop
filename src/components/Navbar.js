@@ -3,17 +3,15 @@ import { Outlet, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { AiFillShopping, AiOutlineMenu } from "react-icons/ai";
 import { search } from "./stateSlice";
-//import { Navigate, useLocation } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
 function Navbar() {
   const dispatch = useDispatch();
-  //const LOCATION = useLocation();
+  const LOCATION = useLocation();
   const CART_STATE = useSelector((state) => state.section.cart);
   const INPUT_STATE = useSelector((state) => state.section.input);
-  // const isImputEmpty =
-  //   INPUT_STATE.length > 0 && LOCATION.pathname !== "/" ? (
-  //     <Navigate to="/" />
-  //   ) : null;
+  
+  const isUserSearching = INPUT_STATE.length > 0 && LOCATION.pathname === "/menu" ? true : false;
 
 
   const clearSearchInput = () => dispatch(search(""));
@@ -21,7 +19,7 @@ function Navbar() {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: "smooth",
+      behavior: "smooth"
     });
   };
 
@@ -39,7 +37,7 @@ function Navbar() {
         </Link>
 
         <div className="navigation">
-          {/* {isImputEmpty} */}
+          {isUserSearching ? <Navigate to="/" /> : null}
 
           <Link to="/menu" onClick={switchList}>
             <AiOutlineMenu className="menuIcon" />
