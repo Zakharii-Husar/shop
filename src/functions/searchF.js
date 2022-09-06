@@ -1,6 +1,6 @@
 const searchItem = (input, arrToIterate) => {
     const matches = [];
-    arrToIterate.forEach(obj => {
+    arrToIterate.forEach((obj) => {
       const stringifiedObject = JSON.stringify(obj);
       const searchedPhrase = input.split(" ");
       if (

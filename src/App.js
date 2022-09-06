@@ -1,3 +1,4 @@
+import Fetch from "./components/Fetch";
 import Navbar from "./components/Navbar";
 import Menu from "./components/Menu";
 import Overview from "./components/Overview";
@@ -8,6 +9,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div className="App">
+      <Fetch />
       <HashRouter>
         <Navbar />
         <Routes>

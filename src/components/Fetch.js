@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { fetchJSON } from './fetchSlice';
+import { fetchJSON } from '../state/fetchSlice';
 
 function Fetch() {
     const dispatch = useDispatch();

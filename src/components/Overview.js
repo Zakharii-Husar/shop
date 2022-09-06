@@ -8,9 +8,10 @@ import {
   remove,
   decreaseQuantity,
   search,
-} from "./stateSlice";
+} from "../state/stateSlice";
 
 import searchF from "../functions/searchF";
+import combineAllProductsF from "../functions/combineAllProductsF";
 import calculateTotalPriceF from "../functions/calculateTotalPriceF";
 
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
@@ -29,39 +30,24 @@ function Overview({ type }) {
   const LOCATION = useLocation();
   const SECTION_LINK = LOCATION.state || type;
   let ARR = DATA[LOCATION.state];
-  let EMPTY_LIST_MESSAGE =
-    SEARCHED.length === 1 ? "Keep typing..." : "Nothing has been found";
+  let EMPTY_LIST_MESSAGE = SEARCHED.length === 1 ? "Keep typing..." : "Nothing has been found";
 
   const setCurrentListOfProducts = () => {
-    const allItems = () => {
-      const all = [];
-      Object.keys(DATA).forEach((key) => {
-        DATA[key].forEach((obj) => {
-          all.push(obj);
-        });
-      });
-      return all;
-    };
 
     if (type === "cart") {
       ARR = CART;
-      EMPTY_LIST_MESSAGE =
-        SEARCHED.length === 0
-          ? "Your cart is empty."
-          : "Nothing has been found in the cart.";
     }
     if (type === "favourite") {
       ARR = LIKED;
-      EMPTY_LIST_MESSAGE =
-        SEARCHED.length === 0
-          ? "You don't have favourite items yet"
-          : "Nothing has been found in your favourite items.";
     }
-    if (type === "home") ARR = allItems();
-    if (SEARCHED.length > 0) ARR = searchF(SEARCHED, ARR);
+    if (type === "home") ARR = combineAllProductsF(DATA);
+    if (SEARCHED.length) ARR = searchF(SEARCHED, ARR);
   };
 
   setCurrentListOfProducts();
+
+
+
 
   return (
     <div className="Overview">
@@ -89,7 +75,7 @@ function Overview({ type }) {
           : false;
 
         const addedItemIndex = CART.indexOf(
-          CART.filter((i) => i.id === item.id)[0]
+          CART.filter(i => i.id === item.id)[0]
         );
 
         const quantityInCart = CART[addedItemIndex]?.quantity || 0;
