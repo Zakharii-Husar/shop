@@ -1,6 +1,8 @@
 import { Outlet, Link, useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { AiFillShopping, AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu } from "react-icons/ai";
+import { MdAddShoppingCart } from "react-icons/md";
+
 import { search } from "../state/stateSlice";
 import { useEffect } from "react";
 
@@ -37,8 +39,9 @@ function Navbar() {
 
   return (
     <div className="Navbar">
-      <Link to="/" onClick={switchList}>
-        Home
+      <Link className="head" to="/" onClick={switchList}>
+        <span className="electronics">Electronics </span>
+        <span className="shop">Shop</span>
       </Link>
 
       <div className="navigation">
@@ -54,9 +57,9 @@ function Navbar() {
         ></input>
 
         <Link to="/cart" onClick={switchList}>
-          <AiFillShopping className="cartIcon" />
+          <MdAddShoppingCart className="cartIcon" />
+          <span className="cartCount" style={{display: CART_STATE.length ? "inline-block" : "none"}}>{CART_STATE.length}</span>
         </Link>
-        <span className="cartCount">{CART_STATE.length}</span>
       </div>
       <Outlet />
     </div>
