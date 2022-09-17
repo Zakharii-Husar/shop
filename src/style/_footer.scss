@@ -1,5 +1,32 @@
+@use './fonts';
+
 @mixin footerStyle {
-    position: sticky;
+    position:fixed;
     bottom: 0;
-    background-color: yellow
+    left: 0;
+    width: 100%;
+    color: white;
+    background-color: black;
+
+    .footerList{
+        @include fonts.footer;
+        display: grid;
+        grid-template-columns: repeat(3, 20%);
+        justify-content: space-around;
+        list-style-type: none;
+    }
+
+    .footerList * {
+        cursor: pointer;
+        margin-bottom: 0.2rem;
+        transition: all 0.5s linear;
+    }
+
+    .footerList > li:hover{
+        text-decoration: underline;
+        color: yellow;
+    }
+
+
+
 }

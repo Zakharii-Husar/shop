@@ -1,0 +1,25 @@
+//navbar header
+@import url('https://fonts.googleapis.com/css2?family=Codystar&display=swap');
+@mixin navbarHeaderFont {
+    font-family: 'Codystar', cursive;
+}
+
+
+//item
+@import url('https://fonts.googleapis.com/css2?family=Codystar&family=Reem+Kufi+Fun&display=swap');
+@mixin itemDetails {
+    font-family: 'Codystar', cursive;
+    font-family: 'Reem Kufi Fun', sans-serif;
+}
+
+//item description
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
+@mixin overViewHeader {
+    font-family: 'Cinzel', serif;
+}
+
+//footer
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+@mixin footer {
+    font-family: 'Chakra Petch', sans-serif;
+}

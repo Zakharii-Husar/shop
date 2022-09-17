@@ -12,7 +12,6 @@ import {
 
 import searchF from "../functions/searchF";
 import combineAllProductsF from "../functions/combineAllProductsF";
-import calculateTotalPriceF from "../functions/calculateTotalPriceF";
 
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import {
@@ -30,10 +29,10 @@ function Overview({ type }) {
   const LOCATION = useLocation();
   const SECTION_LINK = LOCATION.state || type;
   let ARR = DATA[LOCATION.state];
-  let EMPTY_LIST_MESSAGE = SEARCHED.length === 1 ? "Keep typing..." : "Nothing has been found";
+  let EMPTY_LIST_MESSAGE =
+    SEARCHED.length === 1 ? "Keep typing..." : "Nothing has been found";
 
   const setCurrentListOfProducts = () => {
-
     if (type === "cart") {
       ARR = CART;
     }
@@ -46,20 +45,8 @@ function Overview({ type }) {
 
   setCurrentListOfProducts();
 
-
-
-
   return (
     <div className="Overview">
-      <div
-        className="cartSummary"
-        style={{
-          display: type === "cart" && ARR?.length > 0 ? "flex" : "none",
-        }}
-      >
-        {calculateTotalPriceF(CART)}
-      </div>
-
       <div style={{ display: ARR?.length > 0 ? "none" : "flex" }}>
         {EMPTY_LIST_MESSAGE}
       </div>
@@ -75,7 +62,7 @@ function Overview({ type }) {
           : false;
 
         const addedItemIndex = CART.indexOf(
-          CART.filter(i => i.id === item.id)[0]
+          CART.filter((i) => i.id === item.id)[0]
         );
 
         const quantityInCart = CART[addedItemIndex]?.quantity || 0;
@@ -99,42 +86,56 @@ function Overview({ type }) {
 
         return (
           <div className="overviewContainer" key={item.id}>
-            <div className="favBtn" onClick={likeBtn}>
-              {isItemLiked ? (
-                <MdFavorite size={40} />
-              ) : (
-                <MdFavoriteBorder size={40} />
-              )}
-            </div>
-
             <Link
               onClick={() => dispatch(search(""))}
               state={item}
               to={`/${SECTION_LINK}/${item.brand}${item.model}`}
             >
-              <div className="overviewHeader">
+              <div className="itemHeader">
                 <h2>{`${name} ${item.color} ${item.ram || ""} ${
                   item.memory || ""
                 }`}</h2>
-                <div>{`Price: ${item.price}$`}</div>
-              </div>
 
-              <img
-                src={require(`../img/${item.brand}/${item.model}/1.jpg`)}
-                alt="img"
-              />
+                <div className="favBtn" onClick={ e => {e.preventDefault(); likeBtn()}}>
+                  {isItemLiked ? (
+                    <MdFavorite size={40} />
+                  ) : (
+                    <MdFavoriteBorder size={40} />
+                  )}
+                </div>
+              </div>
             </Link>
+
+            <div className="itemPrice">{`Price: ${item.price}$`}</div>
+
+            <img
+              src={require(`../img/${item.brand}/${item.model}/1.jpg`)}
+              alt="img"
+            />
 
             <div className="overviewControl">
               {quantityInCart === 1 ? (
-                <AiFillDelete onClick={minusBtn} size={40} />
+                <AiFillDelete
+                  className="remBtn"
+                  onClick={minusBtn}
+                  size={40}
+                />
               ) : (
-                <AiOutlineMinusSquare onClick={minusBtn} size={40} style={quantityInCart === 0 ? {color: "grey"} : {}}/>
+                <AiOutlineMinusSquare
+                  className="minusBtn"
+                  onClick={minusBtn}
+                  size={40}
+                  style={{ color: quantityInCart === 0 ? "grey" : "red" }}
+                />
               )}
 
               <div className="quantityCount">{quantityInCart}</div>
 
-              <AiOutlinePlusSquare onClick={plusBtn} size={40} />
+              <AiOutlinePlusSquare
+                className="plusBtn"
+                onClick={plusBtn}
+                size={40}
+              />
             </div>
           </div>
         );

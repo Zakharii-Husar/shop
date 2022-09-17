@@ -5,16 +5,17 @@
 @use './footer' as *;
 
 
+
 body, * {
     margin: 0;
     padding: 0;
 }
 
+
 .App {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: grey;
 }
 
 .Navbar {

@@ -5,9 +5,11 @@ import { MdOutlineArrowLeft, MdOutlineArrowRight } from 'react-icons/md';
 function Item() {
     const [iconNumber, setIconNumber] = useState(1);
     const location = useLocation();
-    const itemProps = location.state
-    const name = `${itemProps.brand.charAt(0).toUpperCase()}${itemProps.brand.slice(1)}
-        ${itemProps.model.charAt(0).toUpperCase()}${itemProps.model.slice(1)}`;
+    const itemProps = location.state;
+
+    const firstLetterToUpperCase = (word) => {
+        return `${word.charAt(0).toUpperCase()}${word.slice(1)}`
+    };
 
     const tryRequire = () => {
         try {
@@ -21,17 +23,35 @@ function Item() {
 
     const itemPicture = tryRequire();
 
+    const showConditionally = condition => {
+        return {display: condition ? "flex" : "none"}
+    };
+
 
     return (
         <div className="Item">
+
             <div className="itemPicture">
-                <MdOutlineArrowLeft className="swipeLeft" onClick={() => setIconNumber(iconNumber - 1)}/>
+                <MdOutlineArrowLeft size={40} className="swipeLeft" onClick={() => setIconNumber(iconNumber - 1)}/>
                 <img src={itemPicture} alt="img"/>
-                <MdOutlineArrowRight className="swipeRight" onClick={() => setIconNumber(iconNumber + 1)}/>
+                <MdOutlineArrowRight size={40} className="swipeRight" onClick={() => setIconNumber(iconNumber + 1)}/>
             </div>
-            <div className="itemDescription">
-                <h2>{name}</h2>
-            </div>
+
+            <h2 className="itemHeader">{itemProps.brand} {itemProps.model}</h2>
+            <ul className="itemDescription">
+                <li style={showConditionally(itemProps.battery)}>Battery: {itemProps.battery}</li>
+                <li style={showConditionally(itemProps.memory)}>Harddrive: {itemProps.memory}</li>
+                <li style={showConditionally(itemProps.ram)}>RAM: {itemProps.ram}</li>
+                <li style={showConditionally(itemProps.camera)}>Camera: {itemProps.camera}</li>
+                <li style={showConditionally(itemProps.display)}>Display: {itemProps.display}</li>
+                <li style={showConditionally(itemProps.os)}>OS: {itemProps.os}</li>
+                <li style={showConditionally(itemProps.connectivity)}>Connectivity: {itemProps.connectivity}</li>
+                <li className="itemColor">
+                    <span>Color: {firstLetterToUpperCase(itemProps.color)} </span>
+                    <span className="colorSample"
+                    style={{backgroundColor: itemProps.color}}></span>
+                </li>
+            </ul>
         </div>
     );
 }

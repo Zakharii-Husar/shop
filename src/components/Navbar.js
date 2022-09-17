@@ -3,13 +3,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { AiOutlineMenu } from "react-icons/ai";
 import { MdAddShoppingCart } from "react-icons/md";
 
+import calculateTotalPriceF from "../functions/calculateTotalPriceF";
 import { search } from "../state/stateSlice";
 import { useEffect } from "react";
 
 function Navbar() {
   const dispatch = useDispatch();
   const LOCATION = useLocation();
-  const CART_STATE = useSelector((state) => state.section.cart);
+  const CART = useSelector((state) => state.section.cart);
   const INPUT_STATE = useSelector((state) => state.section.input);
   const navigate = useNavigate();
 
@@ -40,8 +41,7 @@ function Navbar() {
   return (
     <div className="Navbar">
       <Link className="head" to="/" onClick={switchList}>
-        <span className="electronics">Electronics </span>
-        <span className="shop">Shop</span>
+        Electronics
       </Link>
 
       <div className="navigation">
@@ -58,10 +58,22 @@ function Navbar() {
 
         <Link to="/cart" onClick={switchList}>
           <MdAddShoppingCart className="cartIcon" />
-          <span className="cartCount" style={{display: CART_STATE.length ? "inline-block" : "none"}}>{CART_STATE.length}</span>
+          <span
+            className="cartCount"
+            style={{ display: CART.length ? "inline-block" : "none" }}
+          >
+            {CART.length}
+          </span>
+
         </Link>
       </div>
       <Outlet />
+                <div
+            style={{ display: CART.length && LOCATION.pathname === "/cart" ? "flex" : "none" }}
+            className="cartSummary"
+          >
+            {calculateTotalPriceF(CART)}
+          </div>
     </div>
   );
 }
