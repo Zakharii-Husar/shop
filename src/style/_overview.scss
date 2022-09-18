@@ -76,4 +76,14 @@
     .favBtn {
         cursor: pointer;
     }
+
+    @media only screen and (max-width: 600px) {
+        .overviewContainer{
+            flex-basis: 100%;
+        }
+
+        img{
+            width: 80%;
+        }
+    }
 }
