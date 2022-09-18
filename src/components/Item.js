@@ -30,6 +30,7 @@ function Item() {
 
     return (
         <div className="Item">
+            <h2 className="itemHeader">{itemProps.brand} {itemProps.model}</h2>
 
             <div className="itemPicture">
                 <MdOutlineArrowLeft size={40} className="swipeLeft" onClick={() => setIconNumber(iconNumber - 1)}/>
@@ -37,7 +38,7 @@ function Item() {
                 <MdOutlineArrowRight size={40} className="swipeRight" onClick={() => setIconNumber(iconNumber + 1)}/>
             </div>
 
-            <h2 className="itemHeader">{itemProps.brand} {itemProps.model}</h2>
+            
             <ul className="itemDescription">
                 <li style={showConditionally(itemProps.battery)}>Battery: {itemProps.battery}</li>
                 <li style={showConditionally(itemProps.memory)}>Harddrive: {itemProps.memory}</li>

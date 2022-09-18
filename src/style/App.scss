@@ -17,6 +17,7 @@ body, * {
     flex-direction: column;
     align-items: center;
 
+    //preventing blue color around elements on clicking
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;

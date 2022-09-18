@@ -43,6 +43,7 @@
 
     .itemHeader {
         @include fonts.itemDetails;
+        position: absolute;
     }
 
     .itemColor {
@@ -62,5 +63,23 @@
     .itemPicture,
     .itemDescription {
         margin-top: 2rem;
+    }
+
+    @media only screen and (max-width: 600px) {
+        display: flex;
+        flex-direction: column;
+
+        .itemHeader{
+            position: unset;
+            text-align: center;
+        }
+        .itemPicture {
+            height: 50%;
+            flex-basis: 40%;
+    
+            img {
+                object-fit: scale-down;
+            }
+        }
     }
 }

@@ -2,15 +2,14 @@ import { useState } from "react";
 
 function Footer () {
 
-    const [showFooter, setShowfooter] = useState(false);
+    const [showFooter, setShowfooter] = useState(window.innerWidth >= 600 ? true : false);
     return(
         <div className="Footer">
             <div 
             className="showFooterBtn"
             onClick={()=> showFooter ? setShowfooter(false) : setShowfooter(true)}
-            >showmore</div>
+            >About us</div>
             <ul className={ showFooter ? "footerList" : "hideFooterList"}>
-                <li>About us</li>
                 <li>Partners</li>
                 <li>Locations</li>
                 <li>Schedule</li>

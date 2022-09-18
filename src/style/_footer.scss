@@ -20,7 +20,6 @@
     .footerList{
         @include fonts.footer;
         width: 100%;
-        height: 14rem;
         background-color: black;
         display: grid;
         grid-template-columns: repeat(3, 33%);
@@ -45,14 +44,17 @@
     @media only screen and (max-width: 600px) {
 
         .showFooterBtn{
+            @include fonts.footer;
             display: flex;
-            text-align: center;
-            background-color: green;
+            justify-content: center;
+            background-color: black;
+            box-shadow: inset 0 0 10px grey;
         }
 
         .footerList{
             display: flex;
             flex-direction: column;
+            height: 14rem;
         }
 
     }
