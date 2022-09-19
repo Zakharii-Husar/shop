@@ -17,7 +17,11 @@ function Navbar() {
   useEffect(() => {
     if (INPUT_STATE.length && (LOCATION.pathname === "/menu" || LOCATION.state?.id))
       navigate("/", { replace: true });
-  }, [INPUT_STATE.length, LOCATION.pathname, navigate]);
+  }, [
+    INPUT_STATE.length,
+    LOCATION.pathname,
+    navigate,
+    LOCATION.state?.id]);
 
   const clearSearchInput = () => dispatch(search(""));
   const scrollToTop = () => {
