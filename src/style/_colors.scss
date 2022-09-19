@@ -1,0 +1,38 @@
+$TEXT: rgb(17, 148, 17);
+$SUB-TEXT: rgb(25, 25, 122);
+
+//navbar
+$navbar-bg: black;
+$navbar: $TEXT;
+$navbar-header-initial: white;
+
+//cart
+$cart-count: white;
+$cart-count-bg: blue;
+
+//cart summary msg
+$cart-summary: $SUB-TEXT;
+$cart-summary-bg: yellow;
+$cart-summary-border: black;
+
+
+//footer
+$footer: white;
+$footer-bg: black;
+$footer-hoover: gold;
+$show-footer-btn-shadow: grey;
+
+//item
+$item-header-color: $TEXT;
+$item-description-color: $SUB-TEXT;
+$item-arrows: green;
+$color-sample-border: black;
+
+//menu
+$menu: black;
+
+//overview
+$overview-header: $TEXT;
+$overview-control: $TEXT;
+$rem-btn: rgb(226, 0, 0);
+$fav-btn: gold;

@@ -1,4 +1,5 @@
 @use './fonts';
+@use './colors';
 
 @mixin itemStyle {
     display: flex;
@@ -11,8 +12,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        color: red;
-        background-color: white;
+        color: colors.$item-arrows;
         flex-basis: 40%;
 
         img {
@@ -31,6 +31,7 @@
 
     .itemDescription {
         @include fonts.itemDetails;
+        color: colors.$item-description-color;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -42,6 +43,7 @@
     }
 
     .itemHeader {
+        color: colors.$item-header-color;
         @include fonts.itemDetails;
         position: absolute;
     }
@@ -57,7 +59,7 @@
         height: 0.7rem;
         display: flex;
         margin-left: 4px;
-        border: 2px solid black;
+        border: 2px solid colors.$color-sample-border;
     }
 
     .itemPicture,

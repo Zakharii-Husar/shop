@@ -1,10 +1,11 @@
 @use './fonts';
+@use './colors';
 
 @mixin footerStyle {
     position:fixed;
     bottom: 0;
-    color: white;
-    background-color: black;
+    color: colors.$footer;
+    background-color: colors.$footer-bg;
     width: 100%;
 
     .showFooterBtn{
@@ -20,7 +21,6 @@
     .footerList{
         @include fonts.footer;
         width: 100%;
-        background-color: black;
         display: grid;
         grid-template-columns: repeat(3, 33%);
         justify-content: space-around;
@@ -37,7 +37,7 @@
 
     .footerList > li:hover{
         text-decoration: underline;
-        color: yellow;
+        color: colors.$footer-hoover;
     }
 
 
@@ -47,8 +47,8 @@
             @include fonts.footer;
             display: flex;
             justify-content: center;
-            background-color: black;
-            box-shadow: inset 0 0 10px grey;
+            background-color: colors.$footer-bg;
+            box-shadow: inset 0 0 10px colors.$show-footer-btn-shadow;
         }
 
         .footerList{

@@ -90,7 +90,7 @@ function Overview({ type }) {
               state={item}
               to={`/${SECTION_LINK}/${item.brand}${item.model}`}
             >
-              <div className="itemHeader">
+              <div className="overviewHeader">
                 <h2 onClick={() => dispatch(search(""))}>{`${name} ${item.color} ${item.ram || ""} ${
                   item.memory || ""
                 }`}</h2>
@@ -124,7 +124,6 @@ function Overview({ type }) {
                   className="minusBtn"
                   onClick={minusBtn}
                   size={40}
-                  style={{ color: quantityInCart === 0 ? "grey" : "red" }}
                 />
               )}
 
