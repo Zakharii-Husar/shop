@@ -15,7 +15,7 @@ function Navbar() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (INPUT_STATE.length && LOCATION.pathname === "/menu")
+    if (INPUT_STATE.length && (LOCATION.pathname === "/menu" || LOCATION.state?.id))
       navigate("/", { replace: true });
   }, [INPUT_STATE.length, LOCATION.pathname, navigate]);
 

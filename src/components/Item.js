@@ -4,8 +4,7 @@ import { MdOutlineArrowLeft, MdOutlineArrowRight } from 'react-icons/md';
 
 function Item() {
     const [iconNumber, setIconNumber] = useState(1);
-    const location = useLocation();
-    const itemProps = location.state;
+    const itemProps = useLocation().state;
 
     const firstLetterToUpperCase = (word) => {
         return `${word.charAt(0).toUpperCase()}${word.slice(1)}`

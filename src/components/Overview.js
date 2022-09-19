@@ -87,12 +87,11 @@ function Overview({ type }) {
         return (
           <div className="overviewContainer" key={item.id}>
             <Link
-              onClick={() => dispatch(search(""))}
               state={item}
               to={`/${SECTION_LINK}/${item.brand}${item.model}`}
             >
               <div className="itemHeader">
-                <h2>{`${name} ${item.color} ${item.ram || ""} ${
+                <h2 onClick={() => dispatch(search(""))}>{`${name} ${item.color} ${item.ram || ""} ${
                   item.memory || ""
                 }`}</h2>
 

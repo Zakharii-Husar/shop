@@ -6,7 +6,7 @@
     $header-font-size: 3rem;
     $header-color: white;
     $header-shadow-color: rgb(211, 0, 204);
-    $cart-count-size: 1rem;
+    $cart-count-size: 15px;
     
 
     width: 100%;
@@ -78,14 +78,12 @@
 
     .cartCount {
         position: absolute;
-        right: 1rem;
-        transform: translate(-1.7rem, -0.1rem);
+        transform: translate(-2.1rem, -0.1rem);
         color: white;
         background-color: rgb(234, 30, 12);
         border: #2EC4B6 solid 3px;
         font-size: $cart-count-size;
         width: $cart-count-size;
-        height: $cart-count-size;
         border-radius: 100%;
     }
 
