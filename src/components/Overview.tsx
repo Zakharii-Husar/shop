@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useTSDispatch, useTSSelector } from "../state/tsRedux";
 import {
   like,
   unlike,
@@ -20,15 +20,17 @@ import {
   AiFillDelete,
 } from "react-icons/ai";
 
-function Overview({ type }) {
-  const dispatch = useDispatch();
-  const DATA = useSelector((state) => state.data);
-  const CART = useSelector((state) => state.section.cart);
-  const LIKED = useSelector((state) => state.section.favourite);
-  const SEARCHED = useSelector((state) => state.section.input);
+import { itemTypeInterface } from "../state/tsRedux";
+
+function Overview({ type }:{type:string}) {
+  const dispatch = useTSDispatch();
+  const DATA = useTSSelector((state) => state.data);
+  const CART = useTSSelector((state) => state.section.cart);
+  const LIKED = useTSSelector((state) => state.section.favourite);
+  const SEARCHED = useTSSelector((state) => state.section.input);
   const LOCATION = useLocation();
   const SECTION_LINK = LOCATION.state || type;
-  let ARR = DATA[LOCATION.state];
+  let ARR: itemTypeInterface[] = DATA[LOCATION.state as keyof {}];
   let EMPTY_LIST_MESSAGE =
     SEARCHED.length === 1 ? "Keep typing..." : "Nothing has been found";
 
@@ -51,18 +53,18 @@ function Overview({ type }) {
         {EMPTY_LIST_MESSAGE}
       </div>
 
-      {ARR?.map((item) => {
+      {ARR?.map((item:itemTypeInterface) => {
         const name = `${item.brand.charAt(0).toUpperCase()}${item.brand.slice(
           1
         )}
         ${item.model.charAt(0).toUpperCase()}${item.model.slice(1)}`;
 
-        const isItemLiked = LIKED.filter((i) => i.id === item.id).length
+        const isItemLiked = LIKED.filter((i:itemTypeInterface) => i.id === item.id).length
           ? true
           : false;
 
         const addedItemIndex = CART.indexOf(
-          CART.filter((i) => i.id === item.id)[0]
+          CART.filter((i:itemTypeInterface) => i.id === item.id)[0]
         );
 
         const quantityInCart = CART[addedItemIndex]?.quantity || 0;

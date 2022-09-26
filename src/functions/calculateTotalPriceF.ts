@@ -1,7 +1,8 @@
-const calculateTotalPriceF = (arrToIterate) => {
+const calculateTotalPriceF = (arrToIterate: 
+  {quantity:number, price:number}[]): string => {
     const taxPercent = 0.07;
 
-    let total = {
+    const total = {
       quantity: 0,
       price: 0,
       tax: 0,

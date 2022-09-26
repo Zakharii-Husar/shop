@@ -1,5 +1,5 @@
 import { Outlet, Link, useNavigate, useLocation } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useTSSelector, useTSDispatch } from "../state/tsRedux";
 import { AiOutlineMenu } from "react-icons/ai";
 import { MdAddShoppingCart } from "react-icons/md";
 
@@ -8,10 +8,11 @@ import { search } from "../state/stateSlice";
 import { useEffect } from "react";
 
 function Navbar() {
-  const dispatch = useDispatch();
-  const LOCATION = useLocation();
-  const CART = useSelector((state) => state.section.cart);
-  const INPUT_STATE = useSelector((state) => state.section.input);
+
+  const dispatch = useTSDispatch();
+  const LOCATION: any = useLocation();
+  const CART = useTSSelector((state)=> state.section.cart);
+  const INPUT_STATE = useTSSelector((state) => state.section.input);
   const navigate = useNavigate();
 
   useEffect(() => {

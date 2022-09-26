@@ -1,7 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useTSSelector } from "../state/tsRedux";
 function Menu() {
-  const DATA = useSelector((state) => state.data);
+  const DATA = useTSSelector((state) => state.data);
   const NAMES = Object.keys(DATA);
 
   return (
