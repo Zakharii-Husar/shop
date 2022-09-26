@@ -11,15 +11,14 @@ import { fetchJSON } from './state/fetchSlice';
 function App() {
   const dispatch = useTSDispatch();
 
-  const fetchData = () => {
-    fetch('./data.json')
-        .then(response => response.json())
-        .then( (data: object) => dispatch(fetchJSON( data)));
-};
-
   useEffect(()=>{
+    const fetchData = () => {
+      fetch('./data.json')
+          .then(response => response.json())
+          .then( (data: object) => dispatch(fetchJSON( data)));
+  };
     fetchData();
-  }, [fetchData]);
+  }, [dispatch]);
 
   return (
     <div className="App">
