@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "./projects/shop/static/css/main.b17a987f.css",
-    "main.js": "./projects/shop/static/js/main.9feee595.js",
-    "static/media/tv.jpg": "./projects/shop/static/media/tv.9e4220af7ae2ca265dfc.jpg",
-    "static/media/3.jpg": "./projects/shop/static/media/3.415f4434e59302ed255f.jpg",
-    "static/media/2.jpg": "./projects/shop/static/media/2.cea1f891f1fb84ba879e.jpg",
-    "static/media/1.jpg": "./projects/shop/static/media/1.90a67d97ef5edfb83635.jpg",
-    "static/media/5.jpg": "./projects/shop/static/media/5.9174efb17f4efc7d713b.jpg",
-    "static/media/cellphones.jpg": "./projects/shop/static/media/cellphones.5689b8d7a6f043e2c3c6.jpg",
-    "static/media/laptops.jpg": "./projects/shop/static/media/laptops.91046c1b396e2e830bbe.jpg",
-    "static/media/tva.jpg": "./projects/shop/static/media/tva.fee0894c88d4d541ccd0.jpg",
-    "static/media/4.jpg": "./projects/shop/static/media/4.132e15d4a31795d6f162.jpg",
-    "static/media/fav.png": "./projects/shop/static/media/fav.a5fd8019da397a2918e0.png",
-    "index.html": "./projects/shop/index.html",
-    "main.b17a987f.css.map": "./projects/shop/static/css/main.b17a987f.css.map",
-    "main.9feee595.js.map": "./projects/shop/static/js/main.9feee595.js.map"
+    "main.css": "./static/css/main.b17a987f.css",
+    "main.js": "./static/js/main.099a6739.js",
+    "static/media/tv.jpg": "./static/media/tv.9e4220af7ae2ca265dfc.jpg",
+    "static/media/3.jpg": "./static/media/3.415f4434e59302ed255f.jpg",
+    "static/media/2.jpg": "./static/media/2.cea1f891f1fb84ba879e.jpg",
+    "static/media/1.jpg": "./static/media/1.90a67d97ef5edfb83635.jpg",
+    "static/media/5.jpg": "./static/media/5.9174efb17f4efc7d713b.jpg",
+    "static/media/cellphones.jpg": "./static/media/cellphones.5689b8d7a6f043e2c3c6.jpg",
+    "static/media/laptops.jpg": "./static/media/laptops.91046c1b396e2e830bbe.jpg",
+    "static/media/tva.jpg": "./static/media/tva.fee0894c88d4d541ccd0.jpg",
+    "static/media/4.jpg": "./static/media/4.132e15d4a31795d6f162.jpg",
+    "static/media/fav.png": "./static/media/fav.a5fd8019da397a2918e0.png",
+    "index.html": "./index.html",
+    "main.b17a987f.css.map": "./static/css/main.b17a987f.css.map",
+    "main.099a6739.js.map": "./static/js/main.099a6739.js.map"
   },
   "entrypoints": [
     "static/css/main.b17a987f.css",
-    "static/js/main.9feee595.js"
+    "static/js/main.099a6739.js"
   ]
 }
